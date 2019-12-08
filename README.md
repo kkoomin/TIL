@@ -1,7 +1,6 @@
 # Today I learnt (TIL)
 
-> Little knowledges that I learnt today :)
-> These are the ones that I keep studying
+> Things that I learnt today :)
 
 ---
 
@@ -49,3 +48,4 @@
 - 종합 프로젝트
 
 - 특강
+  - [마크다운 문법](https://github.com/kkoomin/TIL/blob/master/Secure_Coding/extra-lecture-markdown.md)
