@@ -71,7 +71,7 @@
 
 ## Username @MENTIONS
 
-    Typing an @ symbol, followed by a username, will notify that person or team to come and view the comment.
+    Typeing and @ symbol, followed by a username, will notify that person or team to come and view the comment.
 
 ## Issue References
 
