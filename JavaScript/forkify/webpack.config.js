@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // config
 module.exports = {
   // properties
-  entry: "./src/js/index.js",
+  entry: ["babel-polyfill", "./src/js/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"), // why it doesn't work when I type "dist/js" just as followed the lecture?
     filename: "js/bundle.js"
@@ -22,7 +22,18 @@ module.exports = {
       filename: "index.html", // final html file
       template: "./src/index.html" // starting html file
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/, //test all the js file
+        exclude: /node_module/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  }
 };
 
 // webpack automatically inject js file into html file when it bundles everything together
