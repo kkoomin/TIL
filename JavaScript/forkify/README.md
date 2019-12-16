@@ -7,14 +7,15 @@
 
 ## About
 
-Modern JavaScript: Using ES6, NPM, Bable and Webpack
+Modern JavaScript: Using ES6, NPM, Babel and Webpack
 
 ## Structure
 
 **dist** = distribution folder (final files which is ready to be deployed and served to the client, ex. CSS, img, final JS files)
 
 **src** = source folder (source files, such as .js, .html) -> only for dev purpose
-.gitignore -> '<filename>/' (slash needed)
+
+**.gitignore** -> '<filename>/' (slash needed)
 
 ## 2019.12 setting command
 
