@@ -15,7 +15,7 @@ https://programmers.co.kr/learn/courses/30/lessons/12901?language=javascript
 
 function solution(a, b) {
   let monthD = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  let day = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"]; // 2016년 1월 1일 금요일 시작
+  let day = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"]; // 2016년 1월 1일 금요일
   let i = 0;
 
   if (a == 1) {
@@ -35,7 +35,7 @@ function solution(a, b) {
 // OTHER SOLUTION
 
 function getDayName(a, b) {
-  var date = new Date(2016, a - 1, b);
+  var date = new Date(2016, a - 1, b); // ex) Mon Feb 22 2016 00:00:00 GMT+0900 (Korean Standard Time)
   return date
     .toString()
     .slice(0, 3)
