@@ -2,8 +2,6 @@
 
 > Things that I learnt today :)
 
-inc. Test folders that I used to follow the lectures
-
 ---
 
 ### Secure Coding & Blockchain
