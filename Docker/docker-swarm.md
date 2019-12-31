@@ -44,9 +44,9 @@ WARNING: No swap limit support
 
 #3 각 서버의 이름을 아래와 같이 설정 및 가상머신 이름 변경
 
-- Virtual Machine Settings - Options - Virtual machine name:
-  swarm-manager
-  swarm-worker1
+- Virtual Machine Settings - Options - Virtual machine name:  
+  swarm-manager  
+  swarm-worker1  
   swarm-worker2
 - 가상 머신 별로 호스트명 변경, 리부팅 후 확인
 
