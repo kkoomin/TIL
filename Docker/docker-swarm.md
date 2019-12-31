@@ -213,7 +213,7 @@ root@swarm-manager:~# docker service update —image nginx:1.11 myweb2
 
 ```
 root@swarm-manager:~# docker service rollback myweb2
-
+(혹은)
 root@swarm-manager:~# docker service update —rollback myweb2
 ```
 
