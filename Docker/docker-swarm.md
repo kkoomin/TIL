@@ -44,10 +44,11 @@ WARNING: No swap limit support
 
 #3 각 서버의 이름을 아래와 같이 설정 및 가상머신 이름 변경
 
-- Virtual Machine Settings - Options - Virtual machine name:  
-  swarm-manager  
-  swarm-worker1  
-  swarm-worker2
+Virtual Machine Settings - Options - Virtual machine name:  
+ swarm-manager  
+ swarm-worker1  
+ swarm-worker2
+
 - 가상 머신 별로 호스트명 변경, 리부팅 후 확인
 
 ```
@@ -60,8 +61,8 @@ swarm-manager : 192.168.111.132
 swarm-worker1 : 192.168.111.133
 swarm-worker2 : 192.168.111.134
 
-cf. VMware Network 가 내려갔을 때 확인할 것
-VMware - Virtual Network Editor - Restore Defaults
+cf. VMware Network 가 내려갔을 때 확인할 것  
+VMware - Virtual Network Editor - Restore Defaults  
 혹은 호스트 머신의 인터넷을 disconnect했다가 다시 연결 시도
 
 ## 도커 스웜 모드의 클러스트를 구축
@@ -171,11 +172,11 @@ http://SWARM_WORKER1_IP:8080/
 http://SWARM_WORKER2_IP:8080/
 ```
 
-⇒ 컨테이너 실행 여부와 관계 없이 접속을 확인
-→ 각 호스트의 어느 노드로 접근하든 실행 중인 컨테이너로 접속이 가능 (노드 = 서버의 개념)
+⇒ 컨테이너 실행 여부와 관계 없이 접속을 확인  
+→ 각 호스트의 어느 노드로 접근하든 실행 중인 컨테이너로 접속이 가능 (노드 = 서버의 개념)  
 -> 스웜 모드는 라운드 로빈 방식으로 서비스 내에 접근할 컨테이너를 결정
 
-- 서비스 장애 복구
+- 서비스 장애 복구  
   #1 매니저 노드에서 노드의 상태를 확인
 
 ```
@@ -212,7 +213,7 @@ root@swarm-manager:~# docker service update —image nginx:1.11 myweb2
 
 ```
 root@swarm-manager:~# docker service rollback myweb2
-(또는)
+
 root@swarm-manager:~# docker service update —rollback myweb2
 ```
 
