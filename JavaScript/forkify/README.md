@@ -64,3 +64,4 @@ import * as <name> from <path>                (* : import everything)
 ## API
 
 - API key : Like a password or unique ID that each user can use in order to make requests so that the API can track how many request the user make per day
+- http://forkify-api.herokuapp.com/
