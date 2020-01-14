@@ -1,25 +1,46 @@
 const fs = require("fs"); // requiring file system module
+const http = require("http");
+const url = require("url");
 
-// Blocking, synchronous way
-const textIn = fs.readFileSync("./txt/input.txt", "utf-8"); // how to read
-console.log(textIn);
-const textOut = `This is what we know about the avocado: ${textIn}. \nCreated on ${Date.now()}`;
-fs.writeFileSync("./txt/output.txt", textOut); // how to write
-console.log("File written!");
+///////////////////////////////////////////////
+// FILES
 
-// Non-blocking, asynchronous way
-fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
-  // in node, the err parameter comes first, and data.
-  if (err) return console.log("ERROR!! 😂");
-  fs.readFile(`./txt/${data1}.txt`, "utf-8", (err, data2) => {
-    console.log(data2);
-    fs.readFile("./txt/append.txt", "utf-8", (err, data3) => {
-      console.log(data3);
+// // Blocking, synchronous way
+// const textIn = fs.readFileSync("./txt/input.txt", "utf-8"); // how to read
+// console.log(textIn);
+// const textOut = `This is what we know about the avocado: ${textIn}. \nCreated on ${Date.now()}`;
+// fs.writeFileSync("./txt/output.txt", textOut); // how to write
+// console.log("File written!");
 
-      fs.writeFile("./txt/final.txt", `${data2}\n${data3}`, "utf-8", err => {
-        console.log("Your file has been written! 😄");
-      });
-    });
-  });
+// // Non-blocking, asynchronous way
+// fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
+//   // in node, the err parameter comes first, and data.
+//   if (err) return console.log("ERROR!! 😂");
+//   fs.readFile(`./txt/${data1}.txt`, "utf-8", (err, data2) => {
+//     console.log(data2);
+//     fs.readFile("./txt/append.txt", "utf-8", (err, data3) => {
+//       console.log(data3);
+
+//       fs.writeFile("./txt/final.txt", `${data2}\n${data3}`, "utf-8", err => {
+//         console.log("Your file has been written! 😄");
+//       });
+//     });
+//   });
+// });
+// console.log("Will read file!");
+
+///////////////////////////////////////////////
+// SERVER
+const server = http.createServer((req, res) => {
+  const pathName = req.url;
+  if (pathName === "/" || pathName === "/overview") {
+    res.end("This is the OVERVIEW");
+  } else if (pathName === "/product") {
+    res.end("This is the PRODUCT");
+  }
+  res.end("Hello from the server!"); // to send back the response from server
 });
-console.log("Will read file!");
+
+server.listen(8000, "127.0.0.1", () => {
+  console.log("Listening to request on port 8000");
+}); // to listen incoming request
