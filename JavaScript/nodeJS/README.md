@@ -36,3 +36,9 @@ String.isPrototypeOf         String.propertyIsEnumerable
 String.toLocaleString        String.valueOf
                 (...)
 ```
+
+- API is a service from which we can request some data.
+- `fs.readFile(`\${**dirname}/dev-data/data.json`);`  
+  "." is where the script running, "**dirname" is where the current file is located.
+- If in the arrow function, there's no curly braces, it will return automatically even though there's no 'return' written.
+- Every single file in Node js is treated as a module.
