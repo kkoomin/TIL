@@ -48,6 +48,7 @@ const tempProduct = fs.readFileSync(
   `${__dirname}/templates/template-product.html`,
   "utf-8"
 );
+
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "utf-8");
 const dataObj = JSON.parse(data); // array of five objs
 const slugs = dataObj.map(el => slugify(el.productName, { lower: true })); // we can use this for creating url insteadl of random queries
