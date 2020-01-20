@@ -49,6 +49,19 @@ Node.js relys on ...
     - Event loops picks them up
     - Callbacks are called
   - Event loop does orchestration
+  - Loop order (tick)
+
+    1. Start
+    2. Expired timer callbacks
+    3. I/O polling and callbacks
+    4. setImmediate callbacks
+    5. Close callbacks
+    6. Any pending timers or I/O tasks? (yes or no)
+       - Yes -> Exit program
+       - No -> loop again from step 2)
+
+    - `process.nextTick()`queue and `other microtasks` queue is executed right after every phases.  
+      (nextTick happens before the next loop phase, and not the entire tick(loop itself))
 
 - `I/O polling` : looking for new I/O events that are ready to be processed and putting them into the callback queue.
 
@@ -57,3 +70,33 @@ Node.js relys on ...
   2. Don't perform complex calculations (ex. loops inside loops)
   3. Be careful with JSON in large objects
   4. Don't use too complex regular expressions (ex. nested quantifiers)
+
+### Event-driven Architecture
+
+`Event emitter` -(emits events)-> `Event listener` -(calls)-> `Attached callback function`
+
+```JS
+const server = http.createServer();
+server.on('request', (req, res) => {
+    console.log('Request received');
+})
+```
+
+- ^`server` is the instance of EventEmitter class
+- Event listener keeps waiting and observing the subject that will eventually emit the event that the listenr is waiting for.
+
+### Streams
+
+- Used to process (read and write) data piece by piece (chunks), without completing the whole read or write operation, and therefore without keeping all the data in memory.
+
+  - Perfect for handling large volumes of data, such as videos.
+  - More efficient data processing in terms of memory (no need to keep all data in memory) and time (we don't have to wait until all the data is available)
+
+    ![node streams](./node-streams.png)
+
+### Node.js Module system
+
+- Each JavaScript file is treated as a separate module
+- Node.js usese the CommonJS module system: `require()`, `exports` or `module.exports`
+- ES module system is used in browsers : `import`/`export`
+- There have been attempts to bring ES modules to node.js (.mjs)
