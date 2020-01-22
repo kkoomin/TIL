@@ -1,11 +1,19 @@
 const fs = require("fs");
 const express = require("express");
 // express will add a bunch of methods to our app variable upon calling.
+const morgan = require("morgan"); // HTTP request logger
+
 const app = express();
 
-/* Middleware
-: a function that can modify the incoming request data.*/
+/*
+ * Middleware : a function that can modify the incoming request data.
+ */
+app.use(morgan("dev"));
 app.use(express.json());
+app.use((req, res, next) => {
+  console.log("hello from the middleware");
+  next();
+});
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
@@ -93,6 +101,9 @@ const deleteTour = (req, res) => {
 };
 
 /*
+ * Routes
+ */
+/* 
 // Get all the tours
 app.get("/api/v1/tours", getAllTours);
 
@@ -120,7 +131,9 @@ app
   .patch(updateTour)
   .delete(deleteTour);
 
-// Running Server
+/*
+ * Running Server
+ */
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);

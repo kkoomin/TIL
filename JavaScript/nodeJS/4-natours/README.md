@@ -43,3 +43,13 @@
 - `app.js`: convention to have all the Express configuration
 - Routing: to determine how an application responds to a certain client request, so to a certain URL or HTTP request which is used for that request.
 - Express sends the headers (ex. Content-type..) automatically :D
+
+### Middleware and Request-Response Cycle
+
+- Express app receives a request when someone hits a server for which it will then create a request object and response object.
+- **Middle ware** : manipulate the request or the response object or execute any other code. (Mostly about the request)
+- "Everything is middleware" (even routers)
+- Middleware Stack
+  - Its order is defined by the **order as defined in the code**
+  - Just like a pipeline where our data go through (linear process)
+  - Request-Response cycle: `incoming request` ---`Middleware stack`---`response`
