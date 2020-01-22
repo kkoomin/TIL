@@ -11,3 +11,16 @@
 
 - Tool for doing API testing
 - Send the requests and receive the responses as text.
+
+### API
+
+- Application Programming Interface: a piece of software that can be used by another piece of software, in order to allow applications to talk to each other.
+
+### REST Architecture
+
+### Project
+
+- Express ^4.xx.xx (`npm i express@4`)
+- `app.js`: convention to have all the Express configuration
+- Routing: to determine how an application responds to a certain client request, so to a certain URL or HTTP request which is used for that request.
+- Express sends the headers (ex. Content-type..) automatically :D
