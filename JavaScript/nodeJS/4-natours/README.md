@@ -48,6 +48,7 @@
 
 - Express app receives a request when someone hits a server for which it will then create a request object and response object.
 - **Middle ware** : manipulate the request or the response object or execute any other code. (Mostly about the request)
+- a function that can modify the incoming request data.
 - "Everything is middleware" (even routers)
 - Middleware Stack
   - Its order is defined by the **order as defined in the code**
