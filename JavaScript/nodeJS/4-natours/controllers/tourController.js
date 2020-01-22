@@ -3,6 +3,17 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
 
+// Middleware
+exports.checkID = (req, res, next, val) => {
+  if (val > tours.length) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID"
+    });
+  }
+  next();
+};
+
 // Handler Function
 exports.getAllTours = (req, res) => {
   res.status(200).json({
@@ -21,13 +32,6 @@ exports.getTour = (req, res) => {
 
   const id = req.params.id * 1; // js trick to convert string as num
   const tour = tours.find(el => el.id === id);
-
-  if (!tour) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID"
-    });
-  }
 
   res.status(200).json({
     status: "success",
@@ -54,12 +58,6 @@ exports.createTour = (req, res) => {
 };
 
 exports.updateTour = (req, res) => {
-  if (req.params.id * 1 > tours.length) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID"
-    });
-  }
   res.status(200).json({
     status: "success",
     data: {
@@ -69,12 +67,6 @@ exports.updateTour = (req, res) => {
 };
 
 exports.deleteTour = (req, res) => {
-  if (req.params.id * 1 > tours.length) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID"
-    });
-  }
   res.status(204).json({
     // 204 : no content
     status: "success",

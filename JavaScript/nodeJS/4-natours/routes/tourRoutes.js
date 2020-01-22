@@ -2,6 +2,9 @@ const express = require("express");
 const tourController = require("../controllers/tourController");
 const router = express.Router();
 
+// This middleware is only specified on this router. (Param Middleware)
+router.param("id", tourController.checkID);
+
 // Router
 router
   .route("/")
