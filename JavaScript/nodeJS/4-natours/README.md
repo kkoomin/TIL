@@ -56,3 +56,26 @@
   - Request-Response cycle: `incoming request` ---`Middleware stack`---`response`
 - Param middleware
   - only runs for certain parameters (which is in our URL).
+
+### Static files
+
+- Files that are sitting in our file system that we currently cannot access using all routes. Because we didn't define any routes.
+- `app.use(express.static(<public folder path>))` looks in the folder that we defined in static method, and it sets that folder to the root. -> We don't need to write the whole path of static files.
+
+### Environment Variables
+
+- Express sets the environment to development.
+- `app.get("env")` -> get the environment that we're currently in
+- Environment variables are global variable that are used to define the environment in which a node app is running.
+- `config.env` : env. is the convention for defining a file which has these environment variables.
+- Environment variable names are always in uppercase.
+- Connect our node module with the package `dotenv`.
+- If we set different kind of start script in package.json, use like `npm run start:prod` instead of just `npm start`
+
+  ```
+  npm i dotenv
+
+  (server.js)
+  const dotenv = require("dotenv");
+  dotenv.config({ path: "./config.env" });
+  ```
