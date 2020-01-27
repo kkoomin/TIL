@@ -1,3 +1,0 @@
-# Backend Architecture
-
-### MVC Architecture

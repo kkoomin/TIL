@@ -75,7 +75,7 @@
 
 ### Mongoose
 
-> Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js, a higher level of abstration.
+> Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js, a higher level of abstraction.
 
 - Mongoose allows for rapid and simple development of mongoDB database interactions.
 - Features: schemas to model data and relationships, easy data validation, simple query API, middleware, etc.
