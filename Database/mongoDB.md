@@ -31,6 +31,7 @@
 ### Installing MongoDB
 
 [Install MongoDB in MacOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+[MongoDB Docs](https://docs.mongodb.com/)
 
     ```
     brew tap mongodb/brew
@@ -47,3 +48,23 @@
   2. `sudo kill <command_pid>
   3. Start `mongod` again.
 - Set another dbpath = `mongod --dbpath=<path>`
+
+### CRUD
+
+1. Creating
+   `db.tours.insertOne( { name: "The Forest Hiker", price: 297, rating: 4.7 })`
+   `db.tours.insertMany([ { name: "The Sea Explorer", price: 497, rating: 4.8 }, { name: "The Snow Adventurer", price: 597, rating: 4.4 } ] )`
+
+2. Reading
+   `db.tours.find()` // find all documents
+
+3. Updating
+   `db.tours.updateOne( { price: { $eq: 597 } }, { $set: { price: 600 } } )`
+
+4. Deleting
+   `db.tours.deleteMany( { rating: { $lt: 4.8 } } )` // with query
+   `db.tours.deleteMany({})` // Delete all documents
+
+### Compass
+
+- Compass is GUI (Graphical User Interface) to work with MongoDB
