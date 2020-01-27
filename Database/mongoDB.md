@@ -30,7 +30,7 @@
 
 ### Installing MongoDB
 
-[Install MongoDB in MacOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+[Install MongoDB in MacOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)  
 [MongoDB Docs](https://docs.mongodb.com/)
 
     ```
@@ -51,18 +51,18 @@
 
 ### CRUD
 
-1. Creating
+1. Creating  
    `db.tours.insertOne( { name: "The Forest Hiker", price: 297, rating: 4.7 })`
    `db.tours.insertMany([ { name: "The Sea Explorer", price: 497, rating: 4.8 }, { name: "The Snow Adventurer", price: 597, rating: 4.4 } ] )`
 
-2. Reading
+2. Reading  
    `db.tours.find()` // find all documents
 
-3. Updating
+3. Updating  
    `db.tours.updateOne( { price: { $eq: 597 } }, { $set: { price: 600 } } )`
 
-4. Deleting
-   `db.tours.deleteMany( { rating: { $lt: 4.8 } } )` // with query
+4. Deleting  
+   `db.tours.deleteMany( { rating: { $lt: 4.8 } } )` // with query  
    `db.tours.deleteMany({})` // Delete all documents
 
 ### Compass
