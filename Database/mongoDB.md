@@ -68,3 +68,59 @@
 ### Compass
 
 - Compass is GUI (Graphical User Interface) to work with MongoDB
+
+### MongoDB Atlas
+
+- Build Project -> Create new cluster -> set the ip whitelist (in here, just allowed all the ip connection) -> connect with Compass or MongoDB Shell with user ID and password
+
+### Mongoose
+
+> Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js, a higher level of abstration.
+
+- Mongoose allows for rapid and simple development of mongoDB database interactions.
+- Features: schemas to model data and relationships, easy data validation, simple query API, middleware, etc.
+
+- How to connect DB with application
+
+  1. `npm i mongoose@5` // specified version
+  2. Set server setting `server.js`
+
+  ```JS
+  const mongoose = require("mongoose")
+
+  const DB = process.env.DATABASE.replace(
+  "<PASSWORD>",
+  process.env.DATABASE_PASSWORD
+  );
+
+  mongoose
+  .connect(DB, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+  })
+  .then((connection) => console.log("DB connection successful!"));
+  ```
+
+- **Mongoose schema** : where we model our data, by describing the structure of the data, default values, and validation.
+
+  ```JS
+  const tourSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "A tour must have a name"],
+    unique: true
+  },
+  rating: {
+    type: Number,
+    default: 4.5
+  },
+  price: {
+    type: Number,
+    required: [true, "A tour must have a price"]
+  }
+  });
+  ```
+
+- **Mongoose model** : a wrapper for the schema, providing an interface to the database for CRUD operations.  
+  `const Tour = mongoose.model("Tour", tourSchema);`
