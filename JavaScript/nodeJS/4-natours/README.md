@@ -37,6 +37,8 @@
    - **Stateless RESTful API**: All state is handled on the **client**. This means that each request must contain all the information necessary to process a certain request. The server should **not** have to remember previous requests.
    - **State** refers to a piece of data in the application that might change over time. ex) loggedIn, currentPage..
 
+- In the RESTful API, not to send back any data to the client when where was a DELETE operation. (Status 204 is a standard)
+
 ### Project
 
 - Express ^4.xx.xx (`npm i express@4`)
