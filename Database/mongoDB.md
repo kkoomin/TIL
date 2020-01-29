@@ -45,7 +45,7 @@
 - Opening mongoDB shell : `mongo`
 - `Failed to set up listener: SocketException: Address already in use`
   1. `sudo lsof -iTCP -sTCP:LISTEN -n -P` : search the list of tasks running
-  2. `sudo kill <command_pid>
+  2. `sudo kill <command_pid>`
   3. Start `mongod` again.
 - Set another dbpath = `mongod --dbpath=<path>`
 
@@ -121,6 +121,8 @@
   }
   });
   ```
+
+  - If some data which is not in our schema is put, it would be ignored.
 
 - **Mongoose model** : a wrapper for the schema, providing an interface to the database for CRUD operations.  
   `const Tour = mongoose.model("Tour", tourSchema);`

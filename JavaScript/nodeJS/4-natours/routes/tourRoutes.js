@@ -14,7 +14,7 @@ const router = express.Router();
 router
   .route("/")
   .get(tourController.getAllTours)
-  .post(tourController.checkBody, tourController.createTour);
+  .post(tourController.createTour);
 // .post(<first middleware>, <second middleware>) : we can chain middlewares.
 
 router

@@ -4,24 +4,25 @@ const Tour = require("./../models/tourModel");
 //   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 // );
 
-exports.checkBody = (req, res, next) => {
-  if (!req.body.name || !req.body.price) {
-    return res.status(400).json({
-      status: "fail",
-      message: "Missing name or price"
-    });
-  }
-  next();
-};
+// exports.checkBody = (req, res, next) => {
+//   if (!req.body.name || !req.body.price) {
+//     return res.status(400).json({
+//       status: "fail",
+//       message: "Missing name or price"
+//     });
+//   }
+//   next();
+// };
 
 // Handler Function
-exports.getAllTours = (req, res) => {
+exports.getAllTours = async (req, res) => {
+  const tours = await Tour.find();
   res.status(200).json({
-    status: "success"
-    // results: tours.length, // when we're sending an array
-    // data: {
-    //   tours
-    // }
+    status: "success",
+    results: tours.length, // when we're sending an array
+    data: {
+      tours
+    }
   });
 };
 
@@ -41,11 +42,18 @@ exports.getTour = (req, res) => {
   // });
 };
 
-exports.createTour = (req, res) => {
-  res.status(201).json({
-    status: "success"
-    // data: { tour: newTour }
-  });
+exports.createTour = async (req, res) => {
+  try {
+    const newTour = await Tour.create(req.body);
+    // Tour.create() returns Promise
+
+    res.status(201).json({
+      status: "success",
+      data: { tour: newTour }
+    });
+  } catch (err) {
+    res.status(400).json({ status: "fail", message: err });
+  }
 };
 
 exports.updateTour = (req, res) => {
