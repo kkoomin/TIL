@@ -1,0 +1,214 @@
+<!-- Ball component를 랜덤 좌표에 생성하고, 해당 Ball을 정해진 시간 내에 잡는 수만큼 Score를 증가시키는 게임 -->
+<!-- 
+  * componentDidMount, componentDidUpdate, componentWillUnmount 사용
+  * props로 function 보내기를 이용해서 child component에서 parent component의 state를 변경
+  * global var로 setInterval를 설정하고 해당 var로 clearInterval 사용
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+      html {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      form {
+        margin-bottom: 30px;
+      }
+      .input {
+        width: 20px;
+      }
+      .header {
+        height: 40px;
+      }
+      .overlay {
+        background-color: SlateGray;
+        position: relative;
+        opacity: 0.2;
+        z-index: 2;
+        pointer-events: none; /* to remove any mouse interaction */
+      }
+    </style>
+    <title>펭수잡기게임</title>
+  </head>
+
+  <body>
+    <div class="container"></div>
+    <script type="text/babel">
+      const container = document.querySelector(".container");
+      class MyGamePanel extends React.Component {
+        state = {
+          balls: [],
+          score: 0,
+          time: 10,
+          isGameStart: false
+        };
+
+        createBall = e => {
+          e.preventDefault();
+          let balls = [];
+          for (let i = 0; i < this.input.value; i++) {
+            const id = Math.random();
+            balls.push(
+              <Ball key={id} ballId={id} getTheScore={this.getTheScore} />
+            );
+          }
+          this.setState({
+            balls: balls,
+            isGameStart: true
+          });
+          this.input.value = "";
+        };
+
+        getTheScore = () => {
+          this.setState({
+            score: this.state.score + 1
+          });
+        };
+
+        finishGame = () => {
+          this.setState({
+            isGameStart: false,
+            balls: [],
+            score: 0
+          });
+          alert(`게임 끝! 펭수를 ${this.state.score}마리 잡았네요!`);
+        };
+
+        setRef = ref => {
+          this.input = ref;
+        };
+
+        render() {
+          const divStyle = {
+            backgroundColor: "lightblue",
+            width: 1200,
+            height: 700
+          };
+
+          return (
+            <React.Fragment>
+              <div>
+                <h1>펭수를 잡아라 🐧</h1>
+                <form onSubmit={this.createBall}>
+                  <input
+                    type="number"
+                    placeholder="펭수 몇명? 🐧🐧"
+                    ref={this.setRef}
+                    min="1"
+                    max="20"
+                  />
+                  <button type="submit">시작</button>
+                </form>
+                <div className="score">Score: {this.state.score}</div>
+                {this.state.isGameStart ? (
+                  <Timer time={this.state.time} finishGame={this.finishGame} />
+                ) : null}
+              </div>
+              <div style={divStyle} className="gamefield">
+                {this.state.balls}
+              </div>
+            </React.Fragment>
+          );
+        }
+      }
+
+      class Timer extends React.Component {
+        interval;
+        state = {
+          time: this.props.time
+        };
+
+        componentDidMount() {
+          this.interval = setInterval(() => {
+            this.setState({
+              time: this.state.time - 1
+            });
+          }, 1000);
+        }
+
+        componentDidUpdate() {
+          if (this.state.time === 0) {
+            this.props.finishGame();
+            clearInterval(this.interval);
+          }
+        }
+
+        render() {
+          return <div>Timer: {this.state.time}</div>;
+        }
+      }
+
+      class Ball extends React.Component {
+        interval;
+
+        state = {
+          ball_top: Math.random() * 600 + 160,
+          ball_left: Math.random() * 1000 + 10,
+          overlay: ""
+        };
+
+        componentDidMount() {
+          //   console.log("Mounted!");
+          this.interval = setInterval(this.changeBallPosition, 800);
+        }
+        componentWillUnmount() {
+          clearInterval(this.interval);
+        } // 이걸 안해주면 안잡은 펭수들의 setInterval 이 계속 돎.
+
+        catchTheBall = () => {
+          this.setState({
+            overlay: "overlay"
+          });
+          clearInterval(this.interval); // 잡은 펭수들의 setInterval은 여기서 clear됨.
+          this.props.getTheScore();
+        };
+
+        changeBallPosition = () => {
+          this.setState({
+            ball_top: Math.random() * 600 + 170,
+            ball_left: Math.random() * 1000 + 10
+          });
+        };
+
+        render() {
+          const imgStyle = {
+            width: 100,
+            // height: 100,
+            textAlign: "center",
+            borderRadius: 50,
+            backgroundColor: this.state.bgColor,
+            position: "fixed",
+            top: this.state.ball_top,
+            left: this.state.ball_left
+          };
+
+          return (
+            <img
+              src="https://image.winudf.com/v2/image1/Y29tLmRldmJhbmQucGVuZ211bml0eV9pY29uXzE1NzYzOTc4NjhfMDY1/icon.png?w=340&fakeurl=1"
+              style={imgStyle}
+              onClick={this.catchTheBall}
+              className={this.state.overlay}
+            />
+          );
+        }
+      }
+
+      ReactDOM.render(<MyGamePanel />, container);
+    </script>
+  </body>
+</html>
