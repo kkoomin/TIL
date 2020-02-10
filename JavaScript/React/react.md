@@ -2,6 +2,13 @@
 
 [React official Docs](https://reactjs.org/docs/getting-started.html)
 
+### React Concepts
+
+1. Don't touch the DOM. React will do it
+2. Build websites like Lego blocks (with Components)
+3. Unidirectional data flow (parent->child)
+4. UI, the rest is up to you.
+
 ### The Job Of a React Developer
 
 1. Decide on Components
@@ -75,3 +82,31 @@ cf. `key` attribute: to distinguish when multiple components are rendered one af
 - In `package.json`, add `"homepage": "https://<github username>.github.io/<project name>`
 - Add in `"scripts": { "predeploy": "yarn build", "deploy": "gh-pages -d build" }`
 - Find the link in github repository settings
+
+### Lifecyle Methods
+
+[Lifecyle method diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+- Mounting
+
+  - When the component is being put on the DOM for the first time. (after rendering)
+  - Once it's mounted, `componentDidMount`
+
+- Updating
+
+  - New props, setState(), forceUpdate() will cause the component to go into the updating phase. (Doesn't need to be 'mount' again.)
+  - After update and re-render, `componentDidUpdate`
+  - `shouldComponentUpdate` : determines if the whole chain needs to happen. (returns boolean)
+    - Mainly just for performance
+    ```js
+    shouldComponentUpdate(nextProps, nextState) {
+      <.. determine whether or not go through other life cycle methods(inc. re-rendering) ..>
+      return nextProps.text !== this.props.text;
+    }
+    ```
+
+- Unmounting
+  - `componentWillUnmount`
+    - Use when we want to remove anything that might be a memory leak.
+
+> Ref. [Complete React Developer in 2020](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/)
