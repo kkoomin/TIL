@@ -1,10 +1,14 @@
-# Small Things that I Figure Out
+# Troubleshooting
 
-### When I got CORS error whilst running my express server
+> Small Things that I Figure Out
+
+### 📍When I got CORS error whilst running my express local server
 
 [3 ways to fix CORS error](https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9)
 
 ```js
+[server.js];
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
