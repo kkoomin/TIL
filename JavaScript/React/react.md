@@ -1,6 +1,6 @@
 # React
 
-[React official Docs](https://reactjs.org/docs/getting-started.html)
+> Ref. [React official Docs](https://reactjs.org/docs/getting-started.html), [Complete React Developer in 2020](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/)
 
 ### React Concepts
 
@@ -109,4 +109,34 @@ cf. `key` attribute: to distinguish when multiple components are rendered one af
   - `componentWillUnmount`
     - Use when we want to remove anything that might be a memory leak.
 
-> Ref. [Complete React Developer in 2020](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/)
+### Routing
+
+- Instll router library : `npm i react-router-dom`
+- Sample Code:
+
+  ```js
+  <!-- App.js -->
+  <HashRouter>
+    <div className={"main"}>
+      <h1>Simple SPA</h1> // title
+
+      <ul className={"header"}> // navs
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/stuff">Stuff</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+      </ul>
+
+      <div className="content"> // area that each components will be loaded
+        <Route exact path="/" component={Home} /> // exact : path should match exactly the route set
+        <Route path="/stuff" component={Stuff} />
+        <Route path="/contact" component={Contact} />
+      </div>
+    </div>
+  </HashRouter>
+  ```
