@@ -21,3 +21,19 @@ app.get("/", (req, res) => {
 
 - Simply make own middleware to add header to every response from the server.
 - Or `const cors = require('cors');` and `app.use(cors())`
+
+### 📍How to prevent SQL injection on Node.js
+
+```js
+con.query(
+  `SELECT * FROM members WHERE (email = ? AND password = ?);`,
+  [req.body.email, req.body.password],
+  (err, result) => {
+    if (err) console.log(err);
+    console.log(result);
+    res.json({ message: `Welcome! ${result[0].name}` });
+  }
+);
+```
+
+- Fix the SQL syntax with "?"(placeholder) and send data through the second paramater of `con.query()`
