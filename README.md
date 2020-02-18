@@ -15,6 +15,7 @@ Node.js
 React
 
 - [React](https://github.com/kkoomin/TIL/blob/master/JavaScript/React/react.md)
+- [Redux](https://github.com/kkoomin/TIL/blob/master/JavaScript/redux.md)
 
 ETC
 
