@@ -37,3 +37,24 @@ con.query(
 ```
 
 - Fix the SQL syntax with "?"(placeholder) and send data through the second paramater of `con.query()`
+
+### 📍Free from .addEventListener for dynamic rendering in vanilla JS
+
+[onevent handlers](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)  
+[GlobalEventHandlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)
+
+```js
+// element with eventlistner
+<tr>
+  <td onclick="displayComment('${comment._id}', '${comment.comment}')">
+    ${comment._id}
+  </td>
+</tr>;
+// -> don't forget to add "" for event handler function
+
+// event handler //
+function displayComment(id, comment) {
+  commentId.value = id;
+  commentComment.value = comment;
+}
+```

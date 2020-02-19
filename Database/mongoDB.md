@@ -52,7 +52,7 @@
 ### CRUD
 
 1. Creating  
-   `db.tours.insertOne( { name: "The Forest Hiker", price: 297, rating: 4.7 })`
+   `db.tours.insertOne( { name: "The Forest Hiker", price: 297, rating: 4.7 })`  
    `db.tours.insertMany([ { name: "The Sea Explorer", price: 497, rating: 4.8 }, { name: "The Snow Adventurer", price: 597, rating: 4.4 } ] )`
 
 2. Reading  
