@@ -71,7 +71,10 @@
 
 ### MongoDB Atlas
 
-- Build Project -> Create new cluster -> set the ip whitelist (in here, just allowed all the ip connection) -> connect with Compass or MongoDB Shell with user ID and password
+1. Build Project
+2. Create new cluster
+3. set the ip whitelist (in here, just allowed all the ip connection)
+4. connect with Compass or MongoDB Shell with user ID and password
 
 ### Mongoose
 
