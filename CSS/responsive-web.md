@@ -40,7 +40,7 @@
 2. GOOD : get all the most-used devices and group them in a logical way and set the width
 3. PERFECT : only look at the content and design. Get the design break points and adjust it (Difficult)
 
-![BreakPoints](breakpoints.png)
+![BreakPoints](./img/breakpoints.png)
 
 - How to set the media query with SASS?
 
@@ -113,6 +113,115 @@
 1. Resolution switching
 2. Density switching (pixel density)
 3. Art direction (Different image on smaller screen)
+
+### `srcset` Attribute (Density Switching)
+
+- Allows to browser to choose the best of two images below according to the screen.
+- `<img srcset="img/logo-1x.png 1x, img/logo-2x.png 2x">`
+- ```html
+  <img
+    srcset="img/nat-1.jpg 300w img/nat-1-large.jpg 1000w"
+    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+    alt="Photo 1"
+    src="img/nat-1-large.jpg"
+  />
+
+  <!-- src attribute : for the browser which doesn't support the others -->
+  ```
+
+### `<picture>` element (Art direction)
+
+```html
+<picture class="logo">
+  <source
+    srcset="img/logo-small-1x.png 1x img/logo-small-2x.png 2x"
+    media="(max-width: 37.5em)"
+  />
+  <img srcset="img/logo-1x.png 1x, img/logo-2x.png 2x" alt="Full logo" />
+</picture>
+
+<!-- in <source> element, we can use media query -->
+```
+
+### Responsive images in CSS
+
+```css
+@media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8),
+      url(../img/hero.jpg);
+}
+
+/* to use bigger image on that media query condition */
+```
+
+### Testing for browser support (`@support`)
+
+```css
+@supports (
+  -webkit-backdrop-filter: blur(10px) or (backdrop-filter: blur(10px))
+) {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba($color-black, 0.3);
+}
+```
+
+- @supports로 브라우저가 ()안의 css를 지원하면 {}안의 코드를 실행
+- www.caniuse.com : to check browser support
+
+### HTML `<meta>`
+
+- This is needed for responsive web design
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+```
+
+### Touch Devices Support
+
+```css
+@media only screen and (max-width: 56.25em), only screen and (hover: none) {
+}
+
+/* If there's a hover effect in the website, we can specify the media query with (hover: none) and set another css appearance instead. */
+```
+
+### Build Process
+
+![Build process](./img/sass-build-process.png)
+
+```json
+// Scripts //
+
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+    // --parallel : To run all at the same time.
+    //              Without this flag, it will run in a sequence
+
+// DevDependencies //
+
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^4.1.1"
+  }
+```
 
 ## Ref.
 

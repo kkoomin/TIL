@@ -1,5 +1,8 @@
 # CSS
 
+> Write a lot of comments!  
+> Use a lot of variables for CSS!
+
 ### 3 things to write good html and css
 
 1. Responsive Design
@@ -44,7 +47,7 @@ Semantic means that we’re using the right HTML tag fro the right content.
 
 ### Layout Types
 
-![LayoutTypes](layout-types.png)
+![LayoutTypes](./img/layout-types.png)
 
 - Float Layouts (fully supported)
 
@@ -109,6 +112,7 @@ The columns should be in a container, which we call a ‘row’.
 
   - Pseudo-class is a special state of a selector.
     (Link is a special state of a selector when it’s an anchor element so it functions as a link)
+  - ex) `::selection` : When user select the text
 
 - max-width
 
