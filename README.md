@@ -2,9 +2,16 @@
 
 ---
 
-Database
+CSS
 
-- [MongoDB](https://github.com/kkoomin/TIL/blob/master/Database/mongoDB.md)
+- [CSS](https://github.com/kkoomin/TIL/blob/master/CSS/css.md)
+- [SASS](https://github.com/kkoomin/TIL/blob/master/CSS/sass.md)
+- [Responsive Web](https://github.com/kkoomin/TIL/blob/master/CSS/responsive-web.md)
+
+React
+
+- [React](https://github.com/kkoomin/TIL/blob/master/JavaScript/React/react.md)
+- [Redux](https://github.com/kkoomin/TIL/blob/master/JavaScript/redux.md)
 
 Node.js
 
@@ -12,10 +19,9 @@ Node.js
 - [Express API structure](https://github.com/kkoomin/TIL/blob/master/JavaScript/nodeJS/4-natours/README.md)
 - [MVC Architecture](https://github.com/kkoomin/TIL/blob/master/JavaScript/nodeJS/backend-architecture.md)
 
-React
+Database
 
-- [React](https://github.com/kkoomin/TIL/blob/master/JavaScript/React/react.md)
-- [Redux](https://github.com/kkoomin/TIL/blob/master/JavaScript/redux.md)
+- [MongoDB](https://github.com/kkoomin/TIL/blob/master/Database/mongoDB.md)
 
 ETC
 

@@ -1,8 +1,5 @@
 # Responsive Web
 
-> With SASS  
-> https://www.udemy.com/course/advanced-css-and-sass
-
 ### Responsive Design Strategies
 
 1. Desktop-first
@@ -106,3 +103,17 @@
     }
   }
   ```
+
+### What are responsive images ?
+
+- The goal of responsive images is to serve the right image to the right screen size and devices, in order to avoid downloading unnecessary large images on smaller screens.
+
+### When to use responsive images : The 3 use cases
+
+1. Resolution switching
+2. Density switching (pixel density)
+3. Art direction (Different image on smaller screen)
+
+## Ref.
+
+> https://www.udemy.com/course/advanced-css-and-sass
