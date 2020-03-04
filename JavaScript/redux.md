@@ -1,5 +1,25 @@
 # Redux
 
+### Why Redux
+
+- Good for managing large state
+- Useful for sharing data between componets
+- Predictable state management using the 3 principles
+  1. Single source of truth
+  2. State is read only
+  3. Changes using pure functions
+
+### How it works
+
+`Action` -->-- `Reducer` -->-- `Store` -->-- DOM changes
+
+### FLUX pattern vs MVC pattern
+
+- Flux  
+  Action -> Dispatcher -> Store -> View (unidirectional data flow)
+- MVC  
+  Action -> Controller -> Model -> View
+
 ### Actions
 
 1. Plain JS object.

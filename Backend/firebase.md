@@ -1,8 +1,7 @@
 # Firebase
 
-> https://firebase.google.com/
-
-Database, Server, Authentication(instead of customizing OAuth)
+> https://firebase.google.com/  
+> For Database, Server, Authentication(instead of customizing OAuth)
 
 ### How to use
 
@@ -32,6 +31,10 @@ Database, Server, Authentication(instead of customizing OAuth)
   - collectionRef returns a `querySnapshot` object
 
 - cf. DocumentSnapshot
+
   - We get a documentSnapshot object from our documentReference object.
   - The documentSnapshot object allows us to check if a document exists at this query using the `.exists` property which returns a boolean.
   - We can also get the actual properties on the object by calling the `.data()` method, which returns us a JSON object of the document. (데이터 자체에 접근하기 위함)
+
+- Whenever we call the `onAuthStateChanged()` or `onSnapshot()` methods from our `auth` library or `referenceObject`, we get back a function that lets us unsubscribe from the listener we just instantiated. Which lifecycle method should we use to call that unsubscribe method in?
+  - `componentWillUnmount`
