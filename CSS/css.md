@@ -56,6 +56,7 @@ Semantic means that we’re using the right HTML tag fro the right content.
 - Flexbox
 
   - laying out elements in a one dimensional row
+  - [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 - CSS Grid
 

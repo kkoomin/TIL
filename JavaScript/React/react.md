@@ -21,6 +21,8 @@
 - Easy to test
 - We can combine each component with its concern.
 
+- 어디에 state를 놓을 지 고민할 것! 상위 component의 state가 변경되면 하위 컴포넌트들은 다 re-render되기 때문에 비효율적!!
+
 ### State vs Props
 
 - One way data flow (need to Lifting State Up)
@@ -108,35 +110,3 @@ cf. `key` attribute: to distinguish when multiple components are rendered one af
 - Unmounting
   - `componentWillUnmount`
     - Use when we want to remove anything that might be a memory leak.
-
-### Routing
-
-- Instll router library : `npm i react-router-dom`
-- Sample Code:
-
-  ```js
-  <!-- App.js -->
-  <HashRouter>
-    <div className={"main"}>
-      <h1>Simple SPA</h1> // title
-
-      <ul className={"header"}> // navs
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/stuff">Stuff</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
-      </ul>
-
-      <div className="content"> // area that each components will be loaded
-        <Route exact path="/" component={Home} /> // exact : path should match exactly the route set
-        <Route path="/stuff" component={Stuff} />
-        <Route path="/contact" component={Contact} />
-      </div>
-    </div>
-  </HashRouter>
-  ```
