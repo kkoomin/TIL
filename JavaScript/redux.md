@@ -11,7 +11,7 @@
 
 ### How it works
 
-`Action` -->-- `Reducer` -->-- `Store` -->-- DOM changes
+`Action` --(Middleware)->-- `(root)Reducer` -->-- `Store` -->-- DOM changes
 
 ### FLUX pattern vs MVC pattern
 
@@ -37,6 +37,8 @@
    - Perform side effects like API calls and routing transitions;
    - Call non-pure functions, e.g. Date.now() or Math.random().
 
+- If the state isn't changed, it's not gonna re-render.
+
 ### Store
 
 - Holds application state;
@@ -55,6 +57,10 @@ Symbol(observable): ƒ observable()
 ### Data Flow
 
 - Strict unidirectional data flow
+
+### Install
+
+`npm i redux redux-logger react-redux`
 
 ### Example Code
 
