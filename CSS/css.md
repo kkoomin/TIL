@@ -62,6 +62,10 @@ Semantic means that we’re using the right HTML tag fro the right content.
 
   - perfect for creating the overall layout of a page in a fully-fledged 2D grid
 
+* Grid vs Flexbox
+  - Flexbox is one dimentional layout and grid is two dimentional layout
+  - grid와 flexbox는 동시에 잘 사용됨
+
 ### Grid
 
 A grid is a design system which allows us to build consistent interfaces.
