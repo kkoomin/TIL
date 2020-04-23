@@ -66,10 +66,10 @@ Symbol(observable): ƒ observable()
 
 ```js
 // Action Creator
-const addColor = value => {
+const addColor = (value) => {
   return { type: "ADD", color: value };
 };
-const removeColor = value => {
+const removeColor = (value) => {
   return { type: "REMOVE", color: value };
 };
 
@@ -83,7 +83,7 @@ const favColors = (state, action) => {
   if (action.type === "ADD") {
     return state.concat(action.color);
   } else if (action.type === "REMOVE") {
-    return state.filter(item => {
+    return state.filter((item) => {
       return item !== action.color;
     });
   } else {
@@ -111,3 +111,10 @@ store.dispatch(addColor("yellow"));
 - In the `src` folder, create `redux` directory.
 - And create `store.js` and `root-reducer.js` to make the different reducer modules and combine them into this.
 - Make the separate directory, such as `user` and make the `user.action.js`, `user.reducer.js` and `user.types.js`(this is for setting the UserActionTypes not to hardcode all the types as a string)
+
+## 메모
+
+- 리덕스의 Provider를 사용할 땐 최상위 js, 즉 index.js에서 하기 (여기서 BrowserRoute도 설정)
+- Redux 폴더를 만들어서 기능별로 하위 폴더 안에 action, action type, reducer를 정의하고, root-reducer.js에서 combineReducers() 실행 후 export
+- store.dispatch()로 action obj를 리턴하는 action creator 함수를 보내는데! React와 결합할 경우 React-Redux 라이브러리에서 제공되는 connect()를 사용하기.
+- Store 안에서 Data State와 UI State 는 분리해야 한다.
