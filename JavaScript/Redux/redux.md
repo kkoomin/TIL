@@ -105,3 +105,9 @@ store.dispatch(addColor("yellow"));
 // Check the state with .getState()
 ////   console.log(store.getState());
 ```
+
+### Redux with React
+
+- In the `src` folder, create `redux` directory.
+- And create `store.js` and `root-reducer.js` to make the different reducer modules and combine them into this.
+- Make the separate directory, such as `user` and make the `user.action.js`, `user.reducer.js` and `user.types.js`(this is for setting the UserActionTypes not to hardcode all the types as a string)
