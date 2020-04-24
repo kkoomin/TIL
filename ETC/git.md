@@ -114,3 +114,15 @@
 - 'gh-pages' branch를 만들어서 페이지 배포용 코드를 따로 관리할 수 있다.
 
 ## Heroku
+
+- Procfile 생성
+
+```
+web: node app.js
+```
+
+- app.js 에 env 포트 세팅
+
+```
+app.listen(process.env.PORT || 3000, () => console.log("Server is running!))
+```

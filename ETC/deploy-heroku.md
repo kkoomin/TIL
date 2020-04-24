@@ -61,3 +61,11 @@
 3. 배포를 할 때, 즉 `npm build`나 `yarn build`를 하게 되면 이 환경 변수가 "production"으로 변함.
    - `npm start`나 `yarn start`일 때는 이 환경 변수가 "development"로 설정됨.
 4. 이러한 설정을 변경하고 나면 `git add .`, `git commit -m "내용"`, `git push heroku master`로 다시 redeploy (이 과정에서 NODE_ENV가 설정되는 메세지를 확인할 수 있음)
+
+## Git Repo 없이 하는 경우
+
+- 프로젝트 생성한 후 로컬 프로젝트 폴더에서
+- `git init`
+- `heroku login`
+- `heroku create`
+- `git add .`, `git commit -m "[message]"`, `git push heroku master`
