@@ -24,7 +24,7 @@ commands의 각 원소는 길이가 3입니다.
 
 function solution(array, commands) {
   let answer = [];
-  commands.forEach(arr => {
+  commands.forEach((arr) => {
     answer.push(
       array.slice(arr[0] - 1, arr[1]).sort((a, b) => a - b)[arr[2] - 1]
     );
@@ -45,7 +45,7 @@ function solution(array, commands) {
 // OTHER SOLUTION
 
 function solution(array, commands) {
-  return commands.map(v => {
+  return commands.map((v) => {
     return array
       .slice(v[0] - 1, v[1])
       .sort((a, b) => a - b)
