@@ -37,7 +37,9 @@
 - [체육복](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/42862.md)
 - [크레인 인형뽑기 게임](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/64061.md)
 
-* [예산](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/12982.md)
-* [비밀지도](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/17681.md)
-* [다트 게임](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/17682.md)
-* [실패율](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/42889.md)
+### 미완료
+
+- [예산](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/12982.md)
+- [비밀지도](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/17681.md)
+- [다트 게임](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/17682.md)
+- [실패율](https://github.com/kkoomin/TIL/blob/master/Code_Challange/Programmars/42889.md)
