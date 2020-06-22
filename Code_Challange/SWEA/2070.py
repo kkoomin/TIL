@@ -1,3 +1,7 @@
+"""
+2070. 큰 놈, 작은 놈, 같은 놈
+"""
+
 import sys
 sys.stdin = open('2070_input.txt')
 
